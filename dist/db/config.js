@@ -17,7 +17,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const dbConnection = () => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     try {
-        yield mongoose_1.default.connect((_a = process.env.MONGO_CNN) !== null && _a !== void 0 ? _a : '');
+        yield mongoose_1.default.connect((_a = process.env.CONNECTTION_MONGOOSE) !== null && _a !== void 0 ? _a : '');
         console.log('Database online');
     }
     catch (error) {

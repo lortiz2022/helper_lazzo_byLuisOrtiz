@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose')
+const { model } = require('mongoose')
 
 interface IRequestBodyUsuarios {
     nombre: string;

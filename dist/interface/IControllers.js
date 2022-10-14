@@ -1,3 +1,3 @@
 "use strict";
-const { Schema, model } = require('mongoose');
+const { model } = require('mongoose');
 //# sourceMappingURL=IControllers.js.map

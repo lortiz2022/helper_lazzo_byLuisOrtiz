@@ -15,26 +15,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const config_1 = require("../db/config");
-const UsuarioRoutes_1 = __importDefault(require("../routes/UsuarioRoutes"));
-const ProyectosRoutes_1 = __importDefault(require("../routes/ProyectosRoutes"));
-const DonacionesRoutes_1 = __importDefault(require("../routes/DonacionesRoutes"));
+const MovimientoRoutes_1 = __importDefault(require("../routes/MovimientoRoutes"));
 const ApiRoutes_1 = __importDefault(require("../routes/ApiRoutes"));
-const ContactosRoutes_1 = __importDefault(require("../routes/ContactosRoutes"));
-const ReportesRoutes_1 = __importDefault(require("../routes/ReportesRoutes"));
-const VisitasRoutes_1 = __importDefault(require("../routes/VisitasRoutes"));
-const ObjetosVariosRoutes_1 = __importDefault(require("../routes/ObjetosVariosRoutes"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
         this.port = process.env.PORT || '8000';
         //Inicializando rutas
-        this.usuarioRoute = '/api/usuarios';
-        this.proyectosRoute = '/api/proyectos';
-        this.donacionesRoute = '/api/donaciones';
-        this.contactosRoute = '/api/contactos';
-        this.reportesRoute = '/api/reportes';
-        this.visitasRoute = '/api/visitas';
-        this.objetoVarioRoute = '/api/objetosvarios';
+        this.movimientosRoute = '/api/movimientos';
         this.api = '/';
         //conection to DB
         this.dbConnection();
@@ -44,14 +32,8 @@ class Server {
         this.routes();
     }
     routes() {
-        this.app.use(this.usuarioRoute, UsuarioRoutes_1.default);
-        this.app.use(this.proyectosRoute, ProyectosRoutes_1.default);
-        this.app.use(this.donacionesRoute, DonacionesRoutes_1.default);
-        this.app.use(this.contactosRoute, ContactosRoutes_1.default);
-        this.app.use(this.reportesRoute, ReportesRoutes_1.default);
-        this.app.use(this.visitasRoute, VisitasRoutes_1.default);
+        this.app.use(this.movimientosRoute, MovimientoRoutes_1.default);
         this.app.use(this.api, ApiRoutes_1.default);
-        this.app.use(this.objetoVarioRoute, ObjetosVariosRoutes_1.default);
     }
     middlewares() {
         this.app.use(express_1.default.json());
