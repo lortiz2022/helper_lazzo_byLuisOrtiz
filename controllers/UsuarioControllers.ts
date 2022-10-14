@@ -45,7 +45,8 @@ export const getUsuarios = async (req: Request, res: Response) => {
 }
 export const deleteDuplicados = async (req: Request, res: Response) => {
     try {
-        const { consecutivo_combustible } = req.body
+        const { consecutivo_combustible,consecutivo_kisco,consecutivo_canastilla } = req.body
+        
         const detalladoCierre = await DetalladoCierreDiario.find({ "data.ventas_combustible.venta": consecutivo_combustible })
 
         if (detalladoCierre.length > 1) {

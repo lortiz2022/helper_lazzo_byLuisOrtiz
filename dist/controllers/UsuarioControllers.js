@@ -48,7 +48,7 @@ const getUsuarios = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 exports.getUsuarios = getUsuarios;
 const deleteDuplicados = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { consecutivo_combustible } = req.body;
+        const { consecutivo_combustible, consecutivo_kisco, consecutivo_canastilla } = req.body;
         const detalladoCierre = yield CierreDiarioModels_1.default.find({ "data.ventas_combustible.venta": consecutivo_combustible });
         if (detalladoCierre.length > 1) {
             let duplocadasABorrar = [];
